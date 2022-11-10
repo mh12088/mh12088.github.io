@@ -1,0 +1,16 @@
+<div class="category-filter-container">
+    <div class="close-btn" (click)="close()">
+        <span class="material-icons">
+            cancel
+        </span>
+    </div>
+    <ul>
+        <ng-container *ngFor="let category of categories; let i = index;">
+            <li (click)="filter(category.key)">
+                <a>
+                    {{category.name}}
+                </a>
+            </li>
+        </ng-container>
+    </ul>
+</div>

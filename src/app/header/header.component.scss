@@ -1,0 +1,79 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: white;
+	height: 48px;
+    width: 100%;
+    padding: 0 1.5rem 0 2.0rem;
+}
+
+.back-btn {
+    position: absolute;
+    left: 0px;
+	cursor: pointer;
+	top: 12px;
+}
+
+.header-left {
+	.logo {
+		cursor: pointer;
+		a {
+			text-decoration: none;
+			color: black;
+		}
+	}
+	svg {
+		max-height: 40px;
+		width: auto;
+	}
+}
+
+
+.header-right {
+	display: flex;
+	align-items: center;
+    
+    .header-menu {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+    }
+}
+
+.header-nav {
+			display: block;
+}
+
+.header-link {
+	color: #000;
+	text-decoration: none;
+	margin-left: .75rem;
+	margin-right: .75rem;
+	display: none;
+	font-weight: 500;
+	display: inline-block;
+	&--button {
+		background-color: #000;
+		color: #fff;
+		padding: .5rem 1.25rem;
+	}
+	
+}
+
+.header-menu-button {
+	cursor: pointer;
+	border: 0;
+	padding: 0;
+	background-color: transparent;
+	position: relative;
+	font-weight: 500;
+	margin-left: auto;
+}

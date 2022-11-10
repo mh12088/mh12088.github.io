@@ -1,0 +1,27 @@
+<div class="search-box-container">
+    <ng-container *ngIf="queryString">
+        <div class="query-label">
+            <a>
+                {{queryString}}
+                <div class="clear-btn" (click)="clearQueryString()">
+                    <span class="material-icons">
+                        cancel
+                    </span>
+                </div>
+            </a>
+        </div>
+    </ng-container>
+    <div class="search-box">
+        <input type="text" placeholder="Search" name="search" [(ngModel)]="searchValue" (ngModelChange)="onChange($event)">
+        <ng-container *ngIf="searchValue">
+            <a class="search-btn" (click)="search()">
+                <span class="material-icons">search</span>
+            </a>
+            <div class="clear-btn" (click)="clearSearchValue()">
+                <span class="material-icons">
+                    cancel
+                </span>
+            </div>
+        </ng-container>
+    </div>
+</div>

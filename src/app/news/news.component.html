@@ -1,0 +1,46 @@
+<div class="news-container">
+    <div class="responsive-wrapper">
+        <div class="page-title">
+            <h1>News</h1>
+        </div>
+        <ng-container *ngIf="news?.length > 0">
+            <pagination-controls class="pagination" (pageChange)="page = $event; backToTop();" [responsive]="true">
+            </pagination-controls>
+        </ng-container>
+        <div class="news-layout">
+            <ng-container *ngIf="news?.length == 0">
+                News not found
+            </ng-container>
+            <ng-container *ngFor="let item of news | paginate: { itemsPerPage: 10, currentPage: page }">
+                <div class="news-column">
+                    <article class="article" (click)="goToDetailPage(item);">
+                        <figure class="article-img">
+                                <ng-container *ngIf="item?.image == 'None'; else image">
+                                    <div class="no-image">
+                                        Image not found
+                                    </div>
+                                </ng-container>
+                                <ng-template #image>
+                                    <img [src]="item?.image" />
+                                </ng-template>
+                            </figure>
+                        <h2 class="article-title article-title--medium">
+                            <span class="article-link">{{item?.title}}</span>
+                        </h2>
+                        <div class="article-author">
+                            <div class="article-author-info">
+                                <dl>
+                                    <dt>Author: {{item?.author}}</dt>
+                                </dl>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </ng-container>
+        </div>
+        <ng-container *ngIf="news?.length > 0">
+            <pagination-controls class="pagination" (pageChange)="page = $event; backToTop();" [responsive]="true">
+            </pagination-controls>
+        </ng-container>
+    </div>
+</div>

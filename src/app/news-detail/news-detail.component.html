@@ -1,0 +1,29 @@
+<div class="news-detail-container responsive-wrapper">
+    <div class="page-title">
+        <h1>Detail</h1>
+    </div>
+    <ng-container *ngIf="news | async as item">
+        <div class="date">
+            {{item?.published | date:'medium'}}
+        </div>
+        <div class="news-title">
+            <h2>
+                {{item?.title}}
+            </h2>
+        </div>
+        <ng-container *ngIf="item?.image == 'None'; else image">
+            <div class="no-image">
+                Image not found
+            </div>
+        </ng-container>
+        <ng-template #image>
+            <img [src]="item?.image" style="display: block; max-width: 100%;" />
+        </ng-template>
+        <div class="desc">
+            {{item?.description}}
+        </div>
+        <div class="author">
+            Author: {{item?.author}}
+        </div>
+    </ng-container>
+</div>

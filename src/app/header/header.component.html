@@ -1,0 +1,36 @@
+<header class="header responsive-wrapper">
+    <ng-container *ngIf="canback$ | async">
+        <div class="back-btn">
+            <span class="material-icons" (click)="back()">
+                arrow_back
+            </span>
+        </div>
+    </ng-container>
+    <div class="header-left">
+        <div class="logo">
+            <a href="/">
+                SZWSAOYIKA
+            </a>
+        </div>
+    </div>
+    <ng-container *ngIf="!(canback$ | async)">
+        <div class="header-right">
+            <nav class="header-nav">
+            </nav>
+            <button class="header-menu-button">
+                <span class="material-icons" (click)="activeMenu();">
+                    menu
+                </span>
+            </button>
+            <ng-container *ngIf="isActive">
+                <div class="header-menu" (click)="activeMenu();">
+                    <app-category-filter (closeEvent)="activeMenu();">
+                    </app-category-filter>
+                </div>
+            </ng-container>
+        </div>
+    </ng-container>
+</header>
+<ng-container *ngIf="!(canback$ | async)">
+    <app-search-box></app-search-box>
+</ng-container>
