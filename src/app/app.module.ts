@@ -23,7 +23,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HeaderModule,
     CommonModule,
     NewsModule,
-    NewsDetailModule
+    NewsDetailModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
