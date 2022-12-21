@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { catchError, map, of, Subscription } from 'rxjs';
+import { catchError, map, of, Subscription, tap } from 'rxjs';
 import { MockDataService } from 'src/service/mock-data.service';
 import { NewsService } from 'src/service/news.service';
 
@@ -27,6 +27,7 @@ export class NewsComponent implements OnInit, OnDestroy {
       () => {
         this.newsService.fetchLatestNews()
           .pipe(
+            tap(data => this.page = 1),
             catchError(() => {
               return this.mockDataService.getLatestNewsMockData();
             })
@@ -65,6 +66,7 @@ export class NewsComponent implements OnInit, OnDestroy {
       params
     )
       .pipe(
+        tap(data => this.page = 1),
         catchError(() => {
           const { category, queryString } = params;
           if (category) {
@@ -104,7 +106,7 @@ export class NewsComponent implements OnInit, OnDestroy {
 
   goToDetailPage(selectedNews: any) {
     this.newsService.saveSelectedNews(selectedNews);
-    this.router.navigate(['news-detail']);
+    this.router.navigate(['news-detail'], selectedNews);
   }
 
   backToTop() {

@@ -7,12 +7,12 @@
     }
     .news-layout {
         display: flex;
-        flex-direction: column;
         flex-wrap: wrap;
         row-gap: 2rem;
     }
     
     .news-column {
+        width: 100%;
         cursor: pointer;
         padding: 0 1.5rem;
         border: 1px solid #CCC;
@@ -29,6 +29,9 @@
     .article-img {
         & + * {
             margin-top: 1rem;
+        }
+        img {
+            width: 100%;
         }
         .no-image {
             height: 100px;
@@ -108,17 +111,8 @@
     
     .article-author-info {
         line-height: 1.375;
-        dl {
-            margin-top: 0.25em;
-        }
-    
-        dt {
-            font-weight: 600;
-        }
-    
-        dd {
-            font-size: 0.875em;
-        }
+        margin-bottom: 2rem;
+        font-size: 16px;
     }
     
     .article-category {

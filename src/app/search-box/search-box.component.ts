@@ -40,6 +40,7 @@ export class SearchBoxComponent implements OnInit, OnDestroy {
 
   clearQueryString() {
     this.queryString = '';
+    this.newsService.latestNews$.next();
   }
 
   onChange(updatedValue: any): void {

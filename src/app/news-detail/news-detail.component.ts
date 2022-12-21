@@ -1,4 +1,5 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, of, Subscription } from 'rxjs';
 import { NewsService } from 'src/service/news.service';
 
@@ -8,15 +9,21 @@ import { NewsService } from 'src/service/news.service';
   styleUrls: ['./news-detail.component.scss']
 })
 export class NewsDetailComponent implements OnInit, OnDestroy {
-  news: Observable<any> = this.newsService.getSelectedNews();
-  subscription = new Subscription;
-  constructor(private newsService: NewsService) { }
+  news: any;
+  newsSub = new Subscription;
+  constructor(private newsService: NewsService,
+    private changeDetectorRef: ChangeDetectorRef
+    ) { }
 
   ngOnInit(): void {
+    this.newsSub = this.newsService.getSelectedNews().subscribe(data => {
+      this.news = data;
+      this.changeDetectorRef.detectChanges();
+    })
   };
 
 
   ngOnDestroy(): void {
-    // this.subscription?.unsubscribe();
+    this.newsSub?.unsubscribe();
   }
 }
