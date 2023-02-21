@@ -3,10 +3,12 @@
         "apps": [],
         "details": [
             {
-                "appID": "v7y92jh9m3.com.szwsaoyika.io/",
-                "paths": [
-                    "*"
-                ]
+                "appID": "9JA89QQLNQ.com.apple.wwdc",
+                "paths": [ "/wwdc/news/", "/videos/wwdc/2015/*"]
+            },
+            {
+                "appID": "ABCD1234.com.apple.wwdc",
+                "paths": [ "*" ]
             }
         ]
     }
