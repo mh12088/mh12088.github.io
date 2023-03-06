@@ -3,9 +3,10 @@
         "apps": [],
         "details": [
             {
-                "appID": "FPX7RH295R.com.szwsaoyika.io",
+                "appID": "9JA89QQLNQ.com.apple.wwdc",
                 "paths": [
-                    "*"
+                    "/wwdc/news/",
+                    "/videos/wwdc/2015/*"
                 ]
             }
         ]
