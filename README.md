@@ -1,3 +1,4 @@
 # SZWSAOYIKA
-# Build command
-# ng deploy --base-href="/SZWSAOYIKA/"
+
+Build command
+ng deploy --base-href="/SZWSAOYIKA/"
