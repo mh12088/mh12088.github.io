@@ -5,7 +5,8 @@
             {
                 "appID": "FPX7RH295R.com.szwsaoyika.io",
                 "paths": [
-                    "*"
+                    "*",
+                    "/"
                 ]
             }
         ]
